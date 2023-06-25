@@ -9,7 +9,7 @@ const Home = () => {
    console.log(products)
   return (
     <div><h1>Home</h1> 
-        <div>
+        <div className='home_cardproduct'>
             {
                 products?.map(prod=>(
                     <CardProduct

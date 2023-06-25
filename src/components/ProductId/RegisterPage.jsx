@@ -22,30 +22,34 @@ const RegisterPage = () => {
     }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(submit)}>
+    <div className="container_register">
+
+
+    <div className="footer_register">
+      <form className="form_register" onSubmit={handleSubmit(submit)}>
         <div>
-          <label htmlFor="firstName">First name</label>
-          <input {...register('firstName')} type="text" id="firstName" />
+          <label className="label_register" htmlFor="firstName">First name</label>
+          <input className="input_register" {...register('firstName')} type="text" id="firstName" />
         </div>
         <div>
-          <label htmlFor="lastName">Last name</label>
-          <input {...register('lastName')} type="text" id="lastName" />
+          <label className="label_register" htmlFor="lastName">Last name</label>
+          <input className="input_register" {...register('lastName')} type="text" id="lastName" />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
-          <input {...register('email')} type="email" id="email" />
+          <label className="label_register" htmlFor="email">Email</label>
+          <input className="input_register" {...register('email')} type="email" id="email" />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
-          <input {...register('password')} type="password" id="password" />
+          <label className="label_register" htmlFor="password">Password</label>
+          <input className="input_register" {...register('password')} type="password" id="password" />
         </div>
         <div>
-          <label htmlFor="phone">Phone</label>
-          <input {...register('phone')} type="number" id="phone" />
+          <label className="label_register" htmlFor="phone">Phone</label>
+          <input className="input_register" {...register('phone')} type="number" id="phone" />
         </div>
-        <button>Submit</button>
+        <button className="btn_register">Submit</button>
       </form>
+    </div>
     </div>
   )
 }

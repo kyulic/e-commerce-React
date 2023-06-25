@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './styles/productInfo.css'
 
 
 const ProductInfo = ({product}) => {
@@ -17,23 +18,25 @@ const ProductInfo = ({product}) => {
 
 
   return (
-    <article>
-        <h3>{product?.brand}</h3>
-        <h2>{product?.title}</h2>
-        <p>{product?.description}</p>
-        <footer>
-            <ul>
-                <li><span>price</span>
-                <span>{product?.price}</span>
+    <article className="article_productinfo">
+        <h3 className="tipe_productinfo">{product?.brand}</h3>
+        <h2 className="title_productinfo">{product?.title}</h2>
+        <p className="description_productinfo">{product?.description}</p>
+        <footer className="footer_productinfo">
+            <ul className="ul_footer_produtinfo">
+                <li className="li_footer_productinfo"><span className="li_span_prod">price</span>
+                <span className="price_product_info">${product?.price}</span>
                 </li>
-                <li><span>Quantity</span>
-                <div onClick={handleMinus}>-</div>
-                <div>{quantity}</div>
-                <div onClick={handleAdd}>+</div>
+                <li className="li_footer_productinfo"><span className="li_span_prod">Quantity</span>
+                    <div className="quantity_productinfo">
+                        <div className="valor_quantity" onClick={handleMinus}>-</div>
+                        <div className="valor_quantity quantity_one">{quantity}</div>
+                        <div className="valor_quantity" onClick={handleAdd}>+</div>
+                    </div>
                 
                 </li>
             </ul>
-            <button>Add to cart <i className='bx bx-cart'></i></button>
+            <button className="btn_prodcutinfo">Add to cart <i className='bx bx-cart'></i></button>
         </footer>
     </article>
   )

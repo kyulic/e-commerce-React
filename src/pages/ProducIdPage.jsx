@@ -18,16 +18,28 @@ const ProducIdPage = () => {
 
     console.log(product)
   return (
-    <div>
+    <div >
+      <div className="productpage_home" >
+        <div>
         <ProductInfo 
         product={product}
         />
+        </div>
         <SliderIms
         product={product}
         />
+
+        <div>
+
+        </div>
+      </div>
+      <div >
+
         <SimilarProducts
         product={product}
         />
+
+      </div>
     </div>
   )
 }

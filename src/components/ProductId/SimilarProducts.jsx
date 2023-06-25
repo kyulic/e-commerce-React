@@ -17,8 +17,8 @@ const SimilarProducts = ({product}) => {
  console.log(productsByCategory)
  return (
     <div>
-      <h2>similar product</h2>
-      <div >
+      <h2 className="title_similar">similar product</h2>
+      <div className="similarproduct_productidpage">
         {
           productsByCategory?.map(prod=>{
             if(product.id!==prod.id){

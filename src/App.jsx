@@ -27,14 +27,16 @@ function App() {
   
 
   return (
-    <div>
+    <div className='app'>
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/product/:id' element={<ProducIdPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>        
         <Route path='/cart' element={<CartPage/>}/>
+        
+        
         
       </Routes>
     </div>

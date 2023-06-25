@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import './styles/SliderImg.css'
 
 const SliderIms = ({product}) => {
+    console.log(product)
 
     const [indexImg, setIndexImg] = useState(0)
     const styleMovible={
-        transform: `translateX(calc((-${indexImg}*100%))`
+        transform: `translateX(calc((-${indexImg}/3*100%))`
     }
 
     const handlePrevius=()=>{
@@ -27,9 +28,12 @@ const SliderIms = ({product}) => {
         }
     }
   return (
+    <>
+    <div>
+
     <div className='slider'>
         <button onClick={handlePrevius} className='slider_btn slider_left'>&lt;</button>
-        <div className='slider_movible'>
+        <div style={styleMovible} className='slider_movible'>
             {
                 product?.images.map(imgInfo=>(
                     <div  className='slider_img_container' key={imgInfo.id}>
@@ -40,12 +44,29 @@ const SliderIms = ({product}) => {
 
         </div>
         <button onClick={handleNext} className='slider_btn slider_right'>&gt;</button>
-        
-        
-        
-        
-        
         </div>
+
+        <div className='slider_footer_container'>
+
+        <div className='slider_footer'>
+        
+            {
+                product?.images.map((imgInfo,i)=>(
+                    <div  className={`slider_footer_img_container 
+                    ${i===indexImg && "slider_img_active"}`} 
+                    key={imgInfo.id}
+                    onClick={()=>setIndexImg(i)}
+                    >
+                        <img className='slider_img' src={imgInfo.url} alt="" />
+                    </div>
+                ))
+            }
+        </div>
+
+        </div>
+    </div>
+
+    </>
   )
 }
 
