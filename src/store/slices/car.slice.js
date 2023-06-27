@@ -9,7 +9,7 @@ const cartSlice=createSlice({
         setCartG:(state,action)=>action.payload,
         addProdcutCartG:(state,action)=>[...state,action.payload],
         deleteProductCartG:(state,action)=>{
-            return state.filter(prod=>prod.id!==action.payload.id)
+            return state.filter(prod=>prod.id!==action.payload)
         }
         }
 })
@@ -19,7 +19,8 @@ export default cartSlice.reducer
 
 const baseUrl='https://e-commerce-api-v2.academlo.tech/api/v1/cart'
 
-//Thunks
+//Thunks funciones que sirve para interactuar con el estado global
+//es reutilizable
 export const getCartThunk=()=>(dispatch)=>{
     const url =baseUrl
     axios.get(url, getConfigAuth())
@@ -28,16 +29,29 @@ export const getCartThunk=()=>(dispatch)=>{
 
 }
  
-export const postCartThunk=(prod)=>(dispatch)=>{
+export const postCartThunk=(prod,quantity=1)=>(dispatch)=>{
     const url =baseUrl
     const data={
-        quantity:1,
+        quantity,
         productId:prod.id
     }
     axios.post(url,data,getConfigAuth())
-    .then(res=>{console.log(res.data)
-    dispatch(addProdcutCartG(res.data))
+    .then(res=>{
+        const obj={
+            ...res.data,
+            product:prod
+        }
+        console.log(res.data)
+    dispatch(addProdcutCartG(obj))
     })
+    .catch(err=>console.log(err))
+
+}
+
+export const deleteCartThunk=(id)=>(dispatch)=>{
+    const url=`${baseUrl}/${id}`
+    axios.delete(url,getConfigAuth())
+    .then(res=>dispatch(deleteProductCartG(id)))
     .catch(err=>console.log(err))
 
 }

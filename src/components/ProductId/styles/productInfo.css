@@ -128,5 +128,23 @@
       
         
     }
+    .valor_quantity{
+    
+        width: 2.3em;
+        font-size: 0.8rem;
+        
+    
+    }
+    /* .quantity_one{
+        width: 3.2em;
+        font-size: 0.6rem;
+    } */
+    .ul_footer_produtinfo{
+    
+        
+        font-size: 0.6rem;
+        
+        
+    }
 
 }

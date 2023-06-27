@@ -1,5 +1,7 @@
 import { useState } from "react"
 import './styles/productInfo.css'
+import { postCartThunk} from '../../store/slices/car.slice'
+import { useDispatch } from 'react-redux'
 
 
 const ProductInfo = ({product}) => {
@@ -7,15 +9,23 @@ const ProductInfo = ({product}) => {
     const [quantity, setQuantity] = useState(1)
     //los dos handleAdd son lo mismo
     // const handleAdd=()=>setQuantity(quantity+1)
-
+    const dispatch=useDispatch()
+  
     const handleMinus=()=>{
         if(quantity-1>=1){
             setQuantity(state=>state-1)}
         }
+
+       
         
         
     const handleAdd=()=>setQuantity(state=>state+1)
 
+    const handleAddtoCart=()=>{
+        dispatch(postCartThunk(product,quantity))
+    }
+
+    
 
   return (
     <article className="article_productinfo">
@@ -36,7 +46,7 @@ const ProductInfo = ({product}) => {
                 
                 </li>
             </ul>
-            <button className="btn_prodcutinfo">Add to cart <i className='bx bx-cart'></i></button>
+            <button onClick={handleAddtoCart} className="btn_prodcutinfo">Add to cart <i className='bx bx-cart'></i></button>
         </footer>
     </article>
   )
