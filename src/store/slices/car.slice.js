@@ -41,7 +41,7 @@ export const postCartThunk=(prod,quantity=1)=>(dispatch)=>{
             ...res.data,
             product:prod
         }
-        console.log(res.data)
+        console.log(obj)
     dispatch(addProdcutCartG(obj))
     })
     .catch(err=>console.log(err))

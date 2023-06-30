@@ -1,14 +1,25 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import CarElement from "../components/cart/CarElement"
+import usePurchase from "../hooks/usePurchase"
+import { setCartG } from "../store/slices/car.slice"
 
 
 const CartPage = () => {
-    const cart=useSelector(states=>states.cart)
+  
+  const cart=useSelector(states=>states.cart)
 
 const totalPrice=cart.reduce((acc,cv)=>{
   const subtotal=cv.quantity*cv.product.price
   return acc+subtotal
 },0)
+const {makePurchase}=usePurchase()
+
+const dispatch=useDispatch()
+const handlePurchase=()=>{
+  makePurchase()
+  // dispatch(setCartG([]))
+}
+
     
   return (
     <div>
@@ -29,6 +40,7 @@ const totalPrice=cart.reduce((acc,cv)=>{
           <div>
             <span>total:</span><span>{totalPrice}</span>
           </div>
+          <button onClick={handlePurchase}>Purchase this cart</button>
         </footer>
     </div>
   )

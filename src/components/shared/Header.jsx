@@ -17,8 +17,12 @@ const Header = () => {
                 </li>
                 <li className="header_li">
                     <Link className="link_header"  to='/cart'><i className='bx bx-cart'></i></Link>
+
                 </li>
-                
+                <li className="header_li">
+                    <Link className="link_header"  to='/purchases'><i className='bx bx-box'></i></Link>
+                    
+                </li>
             </ul>
         </nav>
     </header>
