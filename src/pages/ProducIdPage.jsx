@@ -9,7 +9,8 @@ import SliderIms from "../components/ProductId/SliderIms"
 const ProducIdPage = () => {
 
     const {id}=useParams()
-    const baseUrl = 'https://e-commerce-api-v2.academlo.tech/api/v1'
+    const baseUrl ='https://ecommerce-crud-xg9z.onrender.com/api/v1'
+    //const baseUrl = 'https://e-commerce-api-v2.academlo.tech/api/v1'
     const [product,getProductById]=useFetch(baseUrl)
 
     useEffect(()=>{
