@@ -7,7 +7,7 @@ const PurchasesCard = ({prod}) => {
 
     <article className="article_img_purchases">
         <div className="container_img_purchase">
-        <img className="img_purchases" src={prod.product.images[0].url} alt="" />
+        <img className="img_purchases" src={prod?.product.images[0].url} alt="" />
         </div>
         <div className="name_purchses_d">
         <h3 className="name_purchases">{prod.product.title}</h3>
